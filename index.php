@@ -1,8 +1,8 @@
 <?php
 session_start();
 session_regenerate_id();
-$search = "<a class='btn btn-primary' href='vaccine'>Search for a new pin code</a>";
-$search_new = "<a class='btn btn-primary' href='vaccine'>Refresh</a>";
+$search = "<a class='btn btn-primary' href='vaccine.codewithbishal.com'>Search for a new pin code</a>";
+$search_new = "<a class='btn btn-primary' href='vaccine.codewithbishal.com'>Refresh</a>";
 $date = date("d-m-y");
 
 
