@@ -219,10 +219,10 @@ else {
     $("#myTable").removeClass("table-responsive");
 }
 </script>
-<script src="js/mini/form-val.min.js" defer></script>
-<script src="js/mini/autosave.min.js"></script>
-<script src="js/mini/captcha.min.js" defer></script>
-<script src="js/mini/load.min.js" defer></script>
+<script src="https://codewithbishal.com/js/mini/form-val.min.js" defer></script>
+<script src="https://codewithbishal.com/js/mini/autosave.min.js"></script>
+<script src="https://codewithbishal.com/js/mini/captcha.min.js" defer></script>
+<script src="https://codewithbishal.com/js/mini/load.min.js" defer></script>
 <script>
   saveStorage('#pin');
 </script>
