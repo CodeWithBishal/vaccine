@@ -115,19 +115,7 @@ if(!defined('Myfooter')){
       <a href="https://codewithbishal.com/"> codewithbishal.com</a>
     </div>
 <!-- <script src="js/oc.js" defer></script> -->
-<script src="https://codewithbishal.com/js/mini/live-chat.min.js" defer></script>
-<script src="https://codewithbishal.com/js/mini/enter13.min.js" defer></script>
 <script src="https://codewithbishal.com/js/mini/main.min.js" defer></script>
-<script src="https://codewithbishal.com/js/mini/defer-img.min.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "9a1cc713-768c-4028-aaed-cfe8b78b838a",
-    });
-  });
-</script>
-    </footer>
+</footer>
     <!-- Footer -->
