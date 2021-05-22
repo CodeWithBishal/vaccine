@@ -181,7 +181,7 @@ if(isset($_COOKIE['Search'])){
   <h1>Scroll</h1>
   <i class="fas fa-arrow-right fa-3x"></i>
 </div>
-    <table class="table table-bordered text-center table-hover" id="myTable">
+    <table class="table table-bordered text-center table-hover" id="myTable"><?php print_r($response); ?>
       <thead>
         <tr>
           <th scope="col">Date</th>
