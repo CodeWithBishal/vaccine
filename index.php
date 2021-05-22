@@ -16,12 +16,12 @@ if(isset($_POST['submit'])){
     </div>';
   }
   else{
-  $Pincode = htmlspecialchars($_POST['pincode']);
-   // Api link starts 
-   $link = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=";
-   $link .= $Pincode;
-   $link .= "&date=";
-   $link .= $date;
+    $Pincode = htmlspecialchars($_POST['pincode']);
+    // Api link starts 
+    $link = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=";
+    $link .= $Pincode;
+    $link .= "&date=";
+    $link .= $date;
   setcookie("Search", "Please try again after 3 minutes", time()+180);  /* expire in 1 min */
   $curl = curl_init();
     
