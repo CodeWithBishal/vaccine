@@ -7,34 +7,40 @@ $date = date("d-m-y");
 
 
 if(isset($_POST['submit'])){
+  if(isset($_COOKIE['Search'])){
+    $value = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Please Wait for 3 minutes before searching again</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>';
+  }
+  else{
   $Pincode = htmlspecialchars($_POST['pincode']);
-  // Api link starts 
-    $link = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=";
-    $link .= $Pincode;
-    $link .= "&date=";
-    $link .= $date;
+  setcookie("Search", "Please try again after 3 minutes", time()+180);  /* expire in 1 min */
+  $curl = curl_init();
+    
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=$Pincode&date=$date",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'GET',
+      CURLOPT_HTTPHEADER => array(
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
+      ),
+    ));
+    
+    $response = curl_exec($curl);
+    
+    // curl_close($curl);
+    // $response = json_decode($response, true);
  }
+}
 
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-  CURLOPT_URL => $link,
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => '',
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => 'GET',
-  CURLOPT_HTTPHEADER => array(
-    'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
-  ),
-));
-
-$response = curl_exec($curl);
-
-curl_close($curl);
-$response = json_decode($response, true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -165,7 +171,7 @@ echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
   <h1>Scroll</h1>
   <i class="fas fa-arrow-right fa-3x"></i>
 </div>
-    <table class="table table-bordered text-center table-hover" id="myTable">
+    <table class="table table-bordered text-center table-hover" id="myTable"><?php print_r($response); ?>
       <thead>
         <tr>
           <th scope="col">Date</th>
