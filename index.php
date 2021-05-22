@@ -36,8 +36,8 @@ if(isset($_POST['submit'])){
     
     $response = curl_exec($curl);
     
-    // curl_close($curl);
-    // $response = json_decode($response, true);
+    curl_close($curl);
+    $response = json_decode($response, true);
  }
 }
 
@@ -132,6 +132,11 @@ echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
 </div>';
 }
 ?>
+<?php
+if(isset($_COOKIE['Search'])){
+  echo $value;
+}
+?>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Check your nearest Vaccination Center and Slot Availability</p>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Note: All the data are being fetched from Co-WIN public API</p>
     </div>
@@ -171,7 +176,7 @@ echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
   <h1>Scroll</h1>
   <i class="fas fa-arrow-right fa-3x"></i>
 </div>
-    <table class="table table-bordered text-center table-hover" id="myTable"><?php print_r($response); ?>
+    <table class="table table-bordered text-center table-hover" id="myTable">
       <thead>
         <tr>
           <th scope="col">Date</th>
