@@ -37,36 +37,6 @@ $return_url_var=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https
 						
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							<ul class="navbar-nav ml-auto py-4 py-md-0">
-							<?php
-							 if(isset($_SESSION['authorized'])){ ?>
-							 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="https://codewithbishal.com/">HOME</a>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="https://codewithbishal.com/about-us">ABOUT US</a>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="https://codewithbishal.com/contact-us">CONTACT</a>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">EXAMPLES</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="https://codewithbishal.com/posts">ALL</a>
-										<a class="dropdown-item" href="https://codewithbishal.com/search?search=html+and+css">HTML + CSS</a>
-										<a class="dropdown-item" href="https://codewithbishal.com/search?search=html%2C+css+and+js">HTML + CSS + JS</a>
-									</div>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="https://codewithbishal.com/user-contribution">SERVICES</a>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="https://codewithbishal.com/account-dashboard">ACCOUNT DASHBOARD</a>
-                                </li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a class="nav-link" href="https://codewithbishal.com/logout-user">LOG OUT</a>
-								</li>
-							 <?php }
-							 else{ ?>
 								 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
 									<a class="nav-link" href="https://codewithbishal.com/">HOME</a>
 								</li>
@@ -90,7 +60,6 @@ $return_url_var=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
 									<a class="nav-link" id="login2" href="https://codewithbishal.com/login-user?return_url=<?php echo urlencode($return_url_var) ?>">LOG IN</a>
 								</li>
-							<?php } ?>
 							</ul>
 						</div>
 						
