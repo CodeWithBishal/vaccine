@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
     $response = curl_exec($curl);
     
     curl_close($curl);
-    $response = json_decode($response, true);
+    // $response = json_decode($response, true);
  }
 }
 
