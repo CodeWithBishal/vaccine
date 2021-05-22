@@ -8,7 +8,7 @@ $date = date("d-m-y");
 
 if(isset($_POST['submit'])){
   if(isset($_COOKIE['Search'])){
-    $value = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    $value_cookie = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
     <strong>Please Wait for 3 minutes before searching again</strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -17,11 +17,16 @@ if(isset($_POST['submit'])){
   }
   else{
   $Pincode = htmlspecialchars($_POST['pincode']);
+   // Api link starts 
+   $link = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=";
+   $link .= $Pincode;
+   $link .= "&date=";
+   $link .= $date;
   setcookie("Search", "Please try again after 3 minutes", time()+180);  /* expire in 1 min */
   $curl = curl_init();
     
     curl_setopt_array($curl, array(
-      CURLOPT_URL => "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=$Pincode&date=$date",
+      CURLOPT_URL => $link,
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_ENCODING => '',
       CURLOPT_MAXREDIRS => 10,
@@ -134,7 +139,7 @@ echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
 ?>
 <?php
 if(isset($_COOKIE['Search'])){
-  echo $value;
+  echo $value_cookie;
 }
 ?>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Check your nearest Vaccination Center and Slot Availability</p>
