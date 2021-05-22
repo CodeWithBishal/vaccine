@@ -9,8 +9,7 @@ if(!defined('Myfooter')){
 
     <div class="cookie-container">
         <p>
-          We use cookies in this website to give you the best experience on our
-          site and show you relevant ads. To find out more, read our
+          We use cookies on our site to give you the best experience and to show you relevant ads. To find out more, read our
           <a href="https://codewithbishal.com/privacy-policy-cwb">privacy policy</a> and <a href="cookies-cwb">cookie policy</a>.
         </p>
   
