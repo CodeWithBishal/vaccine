@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 session_start();
 session_regenerate_id();
 $search = "<a class='btn btn-primary' href=''>Search for a new pin code</a>";
