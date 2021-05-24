@@ -94,7 +94,9 @@ if(isset($_POST['submit'])){
       all:unset !important;
     }
 }
+
     </style>
+    <style> #data{display:block;} #pin-code-search, .g-recaptcha{display:none;} .px-5, .py-24{padding: 0;}</style>
 </head>
 <body>
 <section class="text-gray-600 body-font">
@@ -109,7 +111,6 @@ if($Pincode){
 <span aria-hidden="true">&times;</span>
 </button>
 </div>';
-echo '<style> #data{display:block;} #pin-code-search, .g-recaptcha{display:none;} .px-5, .py-24{padding: 0;}</style>';
 echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
   To refresh the Search Results please click refresh&nbsp; &nbsp; '.$search_new.'
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
