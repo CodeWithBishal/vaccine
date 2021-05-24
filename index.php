@@ -1,7 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', TRUE);
-ini_set('display_startup_errors', TRUE);
+session_start();
+session_regenerate_id();
 $search = "<a class='btn btn-primary' href=''>Search for a new pin code</a>";
 $search_new = "<a class='btn btn-primary' href=''>Refresh</a>";
 $date = date("d-m-y");
