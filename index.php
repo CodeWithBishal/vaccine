@@ -96,7 +96,7 @@ if(isset($_POST['submit'])){
 }
 
     </style>
-    <style> #data{display:block;} #pin-code-search, .g-recaptcha{display:none;} .px-5, .py-24{padding: 0;}</style>
+    <style> #data{display:block;} .px-5, .py-24{padding: 0;}</style>
 </head>
 <body>
 <section class="text-gray-600 body-font">
