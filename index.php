@@ -1,6 +1,4 @@
 <?php
-session_start();
-session_regenerate_id();
 $search = "<a class='btn btn-primary' href=''>Search for a new pin code</a>";
 $search_new = "<a class='btn btn-primary' href=''>Refresh</a>";
 $date = date("d-m-y");
@@ -22,7 +20,7 @@ if(isset($_POST['submit'])){
     $link .= $Pincode;
     $link .= "&date=";
     $link .= $date;
-  setcookie("Search", "Please try again after 3 minutes", time()+180);  /* expire in 1 min */
+  setcookie("Search", "Please try again after 3 minutes", time()+(60 * 3));  /* expire in 1 min */
   $curl = curl_init();
     
     curl_setopt_array($curl, array(
