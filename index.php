@@ -132,7 +132,7 @@ if(isset($_COOKIE['Search'])){
   echo $value_cookie;
 }
 ?>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Check your nearest Vaccination Center and Slot Availability</p><?php print_r($response); ?>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Check your nearest Vaccination Center and Slot Availability</p><?php echo date('d-m-y'); ?>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Note: All the data are being fetched from Co-WIN public API</p>
     </div>
     <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end" id="pin-code-search">
