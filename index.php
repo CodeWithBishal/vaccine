@@ -18,11 +18,15 @@ if(isset($_POST['submit'])){
   else{
     $Pincode = htmlspecialchars($_POST['pincode']);
     // Api link starts 
+    $link = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=";
+    $link .= $Pincode;
+    $link .= "&date=";
+    $link .= $date;
   setcookie("Search", "Please try again after 3 minutes", time()+180);  /* expire in 1 min */
   $curl = curl_init();
     
     curl_setopt_array($curl, array(
-      CURLOPT_URL => "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=$Pincode&date=$date",
+      CURLOPT_URL => $link,
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_ENCODING => '',
       CURLOPT_MAXREDIRS => 10,
@@ -94,11 +98,15 @@ if(isset($_POST['submit'])){
       all:unset !important;
     }
 }
-
     </style>
-    <style> #data{display:block;} .px-5, .py-24{padding: 0;}</style>
 </head>
 <body>
+<header class="text-gray-700 body-font">
+<?php
+define('Myheader', TRUE);
+require ('header.php');
+?>
+</header>
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
@@ -111,6 +119,7 @@ if($Pincode){
 <span aria-hidden="true">&times;</span>
 </button>
 </div>';
+echo '<style> #data{display:block;} #pin-code-search, .g-recaptcha{display:none;} .px-5, .py-24{padding: 0;}</style>';
 echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
   To refresh the Search Results please click refresh&nbsp; &nbsp; '.$search_new.'
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -133,7 +142,7 @@ if(isset($_COOKIE['Search'])){
   echo $value_cookie;
 }
 ?>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Check your nearest Vaccination Center and Slot Availability</p><?php echo date('d-m-y'); ?>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Check your nearest Vaccination Center and Slot Availability</p>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Note: All the data are being fetched from Co-WIN public API</p>
     </div>
     <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end" id="pin-code-search">
@@ -233,6 +242,12 @@ else {
 <script>
   saveStorage('#pin');
 </script>
+<footer class="page-footer font-small unique-color-dark">
+<?php
+define('Myfooter', TRUE);
+require ('footer.php');
+?>
+</footer>
 <hr>
 </body>
 </html>
