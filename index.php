@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL);
 session_start();
 session_regenerate_id();
 $search = "<a class='btn btn-primary' href=''>Search for a new pin code</a>";
@@ -19,15 +18,11 @@ if(isset($_POST['submit'])){
   else{
     $Pincode = htmlspecialchars($_POST['pincode']);
     // Api link starts 
-    $link = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=";
-    $link .= $Pincode;
-    $link .= "&date=";
-    $link .= $date;
   setcookie("Search", "Please try again after 3 minutes", time()+180);  /* expire in 1 min */
   $curl = curl_init();
     
     curl_setopt_array($curl, array(
-      CURLOPT_URL => $link,
+      CURLOPT_URL => "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=$Pincode&date=$date",
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_ENCODING => '',
       CURLOPT_MAXREDIRS => 10,
