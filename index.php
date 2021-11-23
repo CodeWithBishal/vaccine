@@ -68,6 +68,15 @@ if(isset($_POST['submit'])){
     <link rel="icon" type="image/svg" sizes="32x32" href="https://codewithbishal.com/static/logo/logo-32x32.svg">
     <link rel="icon" type="image/svg" sizes="16x16" href="https://codewithbishal.com/static/logo/logo-16x16.svg">
     <title>Vaccine | Code With Bishal</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RVYG35HVVY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RVYG35HVVY');
+</script>
     <style>
     .cookie-btn{
         background-color: rgba(54, 54, 238, 0.897) !important;
