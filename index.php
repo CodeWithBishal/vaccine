@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors','off');
 $search = "<a class='btn btn-primary' href=''>Search for a new pin code</a>";
 $search_new = "<a class='btn btn-primary' href=''>Refresh</a>";
 $date = date("d-m-y");
@@ -20,7 +21,7 @@ if(isset($_POST['submit'])){
     $link .= $Pincode;
     $link .= "&date=";
     $link .= $date;
-  setcookie("Search", "Please try again after 3 minutes", time()+(60 * 3));  /* expire in 1 min */
+  setcookie("Search", "Please try again after 3 minutes", time()+(60 * 3));  /* expire in 3 min */
   $curl = curl_init();
     
     curl_setopt_array($curl, array(
@@ -52,19 +53,20 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Check your nearest Vaccination Center and Slot Availability">
     <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <link rel="canonical" href="https://codewithbishal.com/vaccine">
-	  <link rel="apple-touch-icon" sizes="180x180" href="https://codewithbishal.com/logo/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://codewithbishal.com/logo/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://codewithbishal.com/logo/favicon-16x16.png"><link rel="manifest" href="https://codewithbishal.com/logo/site.webmanifest">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-181718210-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-181718210-2');
-</script>
+    <link rel="canonical" href="https://vaccine.codewithbishal.com/">
+	  <link rel="apple-touch-icon" sizes="180x180" href="https://codewithbishal.com/static/logo/logo-180x180.svg">
+    <link rel="icon" type="image/svg" sizes="32x32" href="https://codewithbishal.com/static/logo/logo-32x32.svg">
+    <link rel="icon" type="image/svg" sizes="16x16" href="https://codewithbishal.com/static/logo/logo-16x16.svg">
     <title>Vaccine | Code With Bishal</title>
     <style>
     .cookie-btn{
@@ -99,12 +101,6 @@ if(isset($_POST['submit'])){
     </style>
 </head>
 <body>
-<header class="text-gray-700 body-font">
-<?php
-define('Myheader', TRUE);
-require ('header.php');
-?>
-</header>
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
@@ -174,10 +170,10 @@ if(isset($_COOKIE['Search'])){
   </div>
 </section>
 <section id="data">
-<div class="container my-4">
-<div class="text-center" id="scroll">
+<div class="container table-responsive my-4">
+<div class="text-center mb-5" id="scroll">
   <i class="fas fa-arrow-left fa-3x"></i>
-  <h1>Scroll</h1>
+  <h1><----- Scroll -----></h1>
   <i class="fas fa-arrow-right fa-3x"></i>
 </div>
     <table class="table table-bordered text-center table-hover" id="myTable">
@@ -188,6 +184,7 @@ if(isset($_COOKIE['Search'])){
           <th scope="col">Available Vaccine</th>
           <th scope="col">Vaccine</th>
           <th scope="col">Minimum Age Limit</th>
+          <th scope="col">Fee Type</th>
         </tr>
       </thead>
       <tbody>
@@ -210,6 +207,7 @@ foreach($response['centers'] as $list ){
           <td>".$available_capacity."</td>
           <td>".$value['vaccine']."</td>
           <td>".$value['min_age_limit']."</td>
+          <td>".$list['fee_type']."</td>
           </tr>
           ";
         }
@@ -217,36 +215,16 @@ foreach($response['centers'] as $list ){
       ?>
       </tbody>
     </table>
-    <div class="text-center" id="scroll">
+    <div class="text-center mb-5" id="scroll">
       <i class="fas fa-arrow-left fa-3x"></i>
-      <h1>Scroll</h1>
+      <h1><----- Scroll -----></h1>
       <i class="fas fa-arrow-right fa-3x"></i>
     </div>
   </div>
   <hr>
 
 </section>
-<script>
-if($(window).width()<768){
-    $("#myTable").addClass("table-responsive");
-} 
-else {
-    $("#myTable").removeClass("table-responsive");
-}
-</script>
-<script src="https://codewithbishal.com/js/mini/form-val.min.js" defer></script>
-<script src="https://codewithbishal.com/js/mini/autosave.min.js"></script>
-<script src="https://codewithbishal.com/js/mini/captcha.min.js" defer></script>
-<script src="https://codewithbishal.com/js/mini/load.min.js" defer></script>
-<script>
-  saveStorage('#pin');
-</script>
-<footer class="page-footer font-small unique-color-dark">
-<?php
-define('Myfooter', TRUE);
-require ('footer.php');
-?>
-</footer>
+<script src="https://codewithbishal.com/static/js/mini/captcha.min.js" defer></script>
 <hr>
 </body>
 </html>
