@@ -138,7 +138,7 @@ if(isset($_COOKIE['Search'])){
 ?>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Check your nearest Vaccination Center and Slot Availability</p>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Note: All the data are being fetched from Co-WIN public API</p>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Vaccine Tracker will be retired soon. Thanks for using vaccine.codewithbishal.com</p>
+      <!-- <p class="lg:w-2/3 mx-auto leading-relaxed text-base" id="text-description">Vaccine Tracker will be retired soon. Thanks for using vaccine.codewithbishal.com</p> -->
     </div>
     <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end" id="pin-code-search">
       <div class="relative flex-grow w-full">
