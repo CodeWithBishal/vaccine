@@ -201,7 +201,7 @@ if ($failed_cap) {
         <div class="relative flex-grow w-full">
           <form action="" method="POST" id="pin" autocomplete="off" class="needs-validation" novalidate>
             <input type="number" id="pincode" name="pincode" class="form-control"
-              placeholder="Please enter your Pin code here" min="100000" max="999999" required autofocus>
+              placeholder="ZIP code here" min="100000" max="999999" required autofocus>
             <div class="invalid-feedback">Please provide a valid Pincode.</div>
         </div>
         <div class="modal fade" id="gcaptcha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
