@@ -201,7 +201,7 @@ if ($failed_cap) {
         <div class="relative flex-grow w-full">
           <form action="" method="POST" id="pin" autocomplete="off" class="needs-validation" novalidate>
             <input type="number" id="pincode" name="pincode" class="form-control"
-              placeholder="ZIP code here" min="100000" max="999999" required autofocus>
+              placeholder="Enter ZIP code" min="100000" max="999999" required autofocus>
             <div class="invalid-feedback">Please provide a valid Pincode.</div>
         </div>
         <div class="modal fade" id="gcaptcha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -217,7 +217,7 @@ if ($failed_cap) {
               <div class="modal-body py-4">
                 <img src="captcha.php" alt="Captcha" style="margin: auto;">
                 <div class="form-group">
-                  <input type="number" class="form-control my-4" name="captcha" id="captcha" min="10000" max="99999" placeholder="CAPTCHA code here"
+                  <input type="number" class="form-control my-4" name="captcha" id="captcha" min="10000" max="99999" placeholder="Enter CAPTCHA code"
                     required autofocus>
                   <div class="invalid-feedback">Please enter a valid CAPTCHA.</div>
                 </div>
