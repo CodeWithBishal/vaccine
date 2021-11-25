@@ -216,21 +216,21 @@ if ($failed_cap) {
               </div>
               <div class="modal-body py-4">
                 <img src="captcha.php" alt="Captcha" style="margin: auto;">
-                <div class="form-group">
+                <div class="form-group was-validated">
                   <input type="number" class="form-control my-4" name="captcha" id="captcha" min="10000" max="99999" placeholder="Enter CAPTCHA code"
                     required autofocus>
-                  <div class="invalid-feedback">Please enter a valid CAPTCHA.</div>
+                  <div class="invalid-feedback">Please enter a valid CAPTCHA code.</div>
                 </div>
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" name="submit" id="submit">Submit</button>
               </div>
+            </form>
             </div>
           </div>
         </div>
         <button type="button" data-toggle="modal" data-target="#gcaptcha" class="btn btn-primary btn-lg">Search</button>
       </div>
-      </form>
     </div>
   </section>
   <section id="data">
