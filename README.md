@@ -4,6 +4,8 @@ Hi,
 
 I am excited to announce that I have successfully created a Covid-19 Vaccine Tracker
 
+Connect me on Linkedin: www.linkedin.com/in/bishal-das-bd
+
 # Tech Stack Used:
 - 🔹 BootStrap
 - 🔹 HTML
